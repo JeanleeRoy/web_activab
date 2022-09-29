@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page w-screen h-screen">
+  <div class="login-page w-full min-h-screen">
     <div class="w-full max-w-xl mx-auto p-8">
       <div class="flex flex-wrap w-full p-8 bg-red-400 rounded-3xl mt-28">
         <h1 class="w-full mb-4 text-center text-3xl font-semibold">
@@ -77,7 +77,7 @@ export default {
 
 <style>
 .login-page {
-  background-image: url('../static/login-bg.jpg');
+  background-image: url('../static/login-bg.png');
   background-size: cover;
   background-position: center bottom;
 }
