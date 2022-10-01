@@ -14,37 +14,40 @@
               <label
                 for="email-address"
                 class="w-1/3 min-w-min py-2 px-4 text-white bg-black font-bold"
-                >Nombre</label
+                >Usuario</label
               >
               <input
                 id="email-address"
                 v-model="data.username"
                 type="text"
+                required
                 class="w-2/3 py-2 px-4 focus:outline-none bg-gray-200"
                 placeholder="Tu nombre es..."
               />
             </div>
             <div class="flex w-full rounded-lg overflow-hidden">
               <label
-                for="email-address"
+                for="password"
                 class="w-1/3 min-w-min py-2 px-4 text-white bg-black font-bold"
                 >Contraseña</label
               >
               <input
-                id="email-address"
+                id="password"
                 v-model="data.password"
                 type="password"
+                required
                 class="w-2/3 py-2 px-4 focus:outline-none bg-gray-200"
                 placeholder="Tu clave secreta..."
               />
             </div>
           </div>
           <div class="sm:w-10/12 mt-4 mx-auto flex justify-around mt-8">
-            <button
-              class="w-2/5 sm:w-3/7 min-w-min w-50 px-4 pt-1 pb-2 text-lg font-semibold bg-yellow-400 hover:bg-yellow-300 rounded-lg"
-            >
-              Salir
-            </button>
+            <input
+              type="button"
+              value="Salir"
+              class="w-2/5 sm:w-3/7 min-w-min w-50 px-4 pt-1 pb-2 cursor-pointer text-lg font-semibold bg-yellow-400 hover:bg-yellow-300 rounded-lg"
+              @click.stop="onExit"
+            />
             <button
               type="submit"
               class="w-2/5 sm:w-3/7 min-w-min w-50 px-4 pt-1 pb-2 text-lg font-semibold bg-yellow-400 hover:bg-yellow-300 rounded-lg"
@@ -70,6 +73,9 @@ export default {
   methods: {
     onLogin() {
       this.$router.push('/dashboard')
+    },
+    onExit() {
+      this.$router.push('/')
     },
   },
 }
