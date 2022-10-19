@@ -1,11 +1,11 @@
 <template>
   <div class="preitema-page w-full min-h-screen">
     <div class="w-full max-w-xl mx-auto p-8">
-      <div class="flex flex-wrap w-full p-8 bg-red-400 rounded-3xl mt-28">
+      <div class="flex flex-wrap w-full p-8 bg-green-300 rounded-3xl mt-28">
         <h1 class="w-full mb-4 text-center text-3xl font-semibold">
           ¿Que observas en la imagen?
         </h1>
-        <img src="../static/lectura_a/a.png" />
+        <img src="../static/lectura_a/escuela_preguntas.jpg" />
         <form
           class="w-full p-4 mt-2 md:p-6 rounded-lg bg-gray-50"
           @submit.prevent="onClick"
@@ -58,7 +58,7 @@ export default {
 </script>
 <style lang="css">
 .preitema-page {
-  background-image: url('../static/dashboard_b.jpg');
+  background-image: url('../static/a.png');
   background-size: cover;
   background-position: center bottom;
 }

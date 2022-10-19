@@ -1,9 +1,12 @@
 <template>
   <div class="lectura-a w-full min-h-screen">
     <div class="w-full max-w-4xl mx-auto p-8">
-      <div class="flex flex-wrap w-full p-8 bg-red-400 rounded-3xl mt-28">
-        <img class="w-full escalar" src="../static/lectura_a/Lectura_1.png" />
-        <form class="w-full p-4 md:p-6 rounded-lg bg-gray-50" @submit.prevent="onClick">
+      <h1 class="w-full mb-4 text-center text-3xl font-semibold">
+        Resuelve el rompecabezas
+      </h1>
+      <div class="flex flex-wrap w-full p-8 bg-indigo-300 rounded-3xl mt-28">
+        <img class="w-full escalar" src="../static/lectura_a/rompecabezas.png" />
+        <form class="w-full p-4 md:p-6 rounded-lg" @submit.prevent="onClick">
           <div class="sm:w-10/12 mx-auto flex justify-around">
             <button
               type="submit"
@@ -30,7 +33,7 @@ export default {
 </script>
 <style>
 .lectura-a {
-  background-image: url('../static/dashboard_a.png');
+  background-image: url('../static/a.png');
   background-size: cover;
   background-position: center bottom;
 }

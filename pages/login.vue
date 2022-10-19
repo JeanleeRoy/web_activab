@@ -69,7 +69,7 @@ export default {
   }),
   methods: {
     onLogin() {
-      this.$router.push('/dashboard')
+      this.$router.push('/preitema')
     },
   },
 }

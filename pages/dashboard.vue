@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div>
-      <h1 class="w-full text-center text-3xl font-semibold">Hola :D</h1>
-    </div>
+  <div class="dashboard w-full min-h-screen">
     <div v-for="user in users" :key="user.id">
       <b>{{ user.name }}</b>
       <p>{{ user.email }}</p>
@@ -28,3 +25,10 @@ export default {
   methods: {},
 }
 </script>
+<style scoped>
+.dashboard {
+  background-image: url('../static/dashboard_ba.png');
+  background-size: cover;
+  background-position: center bottom;
+}
+</style>
