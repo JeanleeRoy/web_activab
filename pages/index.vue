@@ -1,7 +1,5 @@
 <template>
-  <main>
-    <MemoryGame />
-  </main>
+  <main></main>
 </template>
 
 <script>
