@@ -3,7 +3,10 @@ export default function (context) {
 
   if (process.client) {
     const { route, $supabase } = context
-    const avoidPaths = ['/login', '/', '/signup']
+    let avoidPaths = ['', '/login', '/signup']
+    avoidPaths.forEach(path => {
+      avoidPaths.push(path + '/')
+    })
 
     if (avoidPaths.includes(route.path)) return
 
