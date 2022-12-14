@@ -1,12 +1,21 @@
 <template>
-  <div class="w-full min-h-screen">
-    <SiteHeader />
-  </div>
+  <nav class="w-full bg-yellow-300">
+    <div class="flex justify-between items-center w-full p-4 max-w-7xl mx-auto">
+      <b class="text-2xl">ActiVAB</b>
+      <div v-if="user" class="flex gap-x-4">
+        <p>{{ username }}</p>
+        <p>{{ dni }}</p>
+      </div>
+      <button class="px-4 py-1 rounded-lg bg-yellow-400 hover:bg-gray-200" @click="signOut">
+        Salir
+      </button>
+    </div>
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'SiteHeader',
 
   data: () => ({
     user: null,
@@ -45,10 +54,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.dashboard {
-  background-image: url('../static/dashboard_ba.png');
-  background-size: cover;
-  background-position: center bottom;
-}
-</style>
+<style scoped></style>
