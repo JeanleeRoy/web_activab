@@ -47,7 +47,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
+    // '@nuxtjs/auth-next',
     [
       'nuxt-supabase',
       {
@@ -56,8 +56,9 @@ export default {
       },
     ],
   ],
+
   // Auth options: https://auth.nuxtjs.org/api/options/
-  auth: {
+  /*auth: {
     redirect: {
       login: '/',
       logout: '/',
@@ -88,7 +89,7 @@ export default {
         tokenRequired: true,
       },
     },
-  },
+  },*/
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -98,6 +99,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  router: {
+    middleware: ['authenticated'],
+  },
 
   generate: {
     fallback: true,
