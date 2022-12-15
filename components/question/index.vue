@@ -23,12 +23,12 @@ export default {
       require: true,
       default() {
         return {
-          slug: 'pregunta_a',
+          slug: 'pregunta_1',
           text: '¿Qué nombre elegir?',
           body: '',
           hint: '',
           type: 'multiple_choice',
-          image: 'lectura_a/pregunta_1.jpg',
+          image: 'lectura_1/pregunta_1.jpg',
           parent: 'lectura_a',
         }
       },

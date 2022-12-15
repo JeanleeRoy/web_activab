@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .lectura {
-  background-image: url('~/static/b.png');
+  background-image: url('~/assets/b.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;

@@ -41,6 +41,7 @@
           <div class="w-full max-w-2xl border-2 border-gray-400">
             <div
               v-for="ans in answers"
+              :key="ans.name"
               class="flex w-full py-4 px-8 border-2 border-b-gray-400"
             >
               <p class="w-3/4">{{ ans.name }} -</p>

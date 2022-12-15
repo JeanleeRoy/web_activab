@@ -3,6 +3,7 @@
     <template v-for="option in options">
       <label
         :for="option.id"
+        :key="option.id"
         class="flex bg-indigo-200 px-6 py-3 rounded-lg cursor-pointer"
       >
         <input :id="option.id" v-model="selection" type="radio" :value="option.value" />
