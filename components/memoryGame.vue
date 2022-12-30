@@ -50,7 +50,7 @@ export default {
     },
     // requiring card image from the assets directory
     getImgUrl: function (img) {
-      return require(`../assets/lectura_7/${img}.jpg`)
+      return require(`../assets/lectura_11/${img}.jpg`)
     },
     // creates card array and suffle items
     createArray: function () {
