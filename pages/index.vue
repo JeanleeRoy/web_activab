@@ -11,6 +11,6 @@ import PuzzleGame from '~/components/PuzzleGame.vue'
 export default {
   name: 'IndexPage',
   components: { VueSlidePuzzle, MemoryGame, HangManGame, PuzzleGame },
-  middleware: ['authenticated'],
+  middleware: ['authenticated', 'dashboard'],
 }
 </script>

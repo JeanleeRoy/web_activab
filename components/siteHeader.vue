@@ -6,7 +6,10 @@
         <p>{{ username }}</p>
         <p>{{ dni }}</p>
       </div>
-      <button class="px-4 py-1 rounded-lg bg-yellow-400 hover:bg-gray-200" @click="signOut">
+      <button
+        class="px-4 py-1 rounded-lg bg-yellow-400 hover:bg-gray-200"
+        @click="signOut"
+      >
         Salir
       </button>
     </div>

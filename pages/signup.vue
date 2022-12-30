@@ -81,7 +81,7 @@
 
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'SignupPage',
 
   data: () => ({
     data: {

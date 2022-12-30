@@ -1,47 +1,49 @@
 <template>
   <div class="w-full min-h-screen">
     <SiteHeader />
+    <div class="w-full max-w-7xl p-4 my-8 mx-auto">
+      <h2 class="text-2xl font-bold mb-8 px-8">¡Hola <span class="text-blue-600">{{ name }}</span>!</h2>
+      <LevelGrid />
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'LoginPage',
+import LevelGrid from '~/components/level/levelGrid.vue'
 
+export default {
+  name: 'Dashboard',
   data: () => ({
     user: null,
   }),
-
   head() {
     return {
       title: 'Dashboard',
     }
   },
-
   computed: {
-    username() {
-      return this.user.user_metadata.fullname
+    name() {
+      return this.user?.user_metadata.fullname?.split(' ')[0]
     },
     dni() {
       return this.user.user_metadata.dni
     },
   },
-
   async fetch() {
     const data = await this.$supabase.auth.currentUser
     if (data) {
       this.user = data
     }
   },
-
   methods: {
     async signOut() {
       const { error } = await this.$supabase.auth.signOut()
       if (!error) {
-        this.$router.push('/')
+        this.$router.push('/login')
       }
     },
   },
+  components: { LevelGrid },
 }
 </script>
 

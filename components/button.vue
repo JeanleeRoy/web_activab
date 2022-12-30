@@ -1,9 +1,10 @@
 <template>
-  <input
+  <button
     type="button"
-    :value="value"
-    class="min-w-min w-50 px-4 pt-1 pb-2 cursor-pointer text-lg font-semibold bg-yellow-400 hover:bg-yellow-300 rounded-lg"
-  />
+    class="block cursor-pointer min-w-min w-50 px-4 pt-1 pb-2 text-lg font-semibold bg-yellow-400 disabled:pointer-events-none disabled:bg-yellow-200 hover:bg-yellow-300 rounded-lg"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -17,11 +18,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-input:disabled {
-  cursor: default;
-  background-color: #fde68a;
-  color: #4b5563;
-}
-</style>

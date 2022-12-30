@@ -22,7 +22,7 @@
                 type="text"
                 required
                 class="w-2/3 py-2 px-4 focus:outline-none bg-gray-200"
-                placeholder="Tu nombre es..."
+                placeholder="Tu DNI es..."
               />
             </div>
             <div class="flex w-full rounded-lg overflow-hidden">
