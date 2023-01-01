@@ -6,7 +6,7 @@
         :key="option.id"
         class="flex bg-indigo-200 px-6 py-3 rounded-lg cursor-pointer"
       >
-        <input :id="option.id" v-model="selection" type="radio" :value="option.value" />
+        <input :id="option.id" v-model="selection" type="radio" :value="option.id" />
         <p class="ml-2">{{ option.text }}</p>
       </label>
     </template>
@@ -16,6 +16,7 @@
 <script>
 export default {
   name: 'MultipleChoice',
+  emits: ['validateAnswer', 'optionSelected'],
   props: {
     options: {
       require: true,
@@ -36,8 +37,11 @@ export default {
     event: 'validateAnswer',
   },
   computed: {
-    correctAnswer() {
-      return this.options.find(opt => opt.isCorrect).value
+    correctAnswers() {
+      return this.options.reduce((acc, option) => {
+        if (option.isCorrect) acc.push(option.id)
+        return acc
+      }, [])
     },
   },
   data: () => ({
@@ -47,13 +51,17 @@ export default {
     selection(newValue) {
       if (newValue) {
         this.$emit('validateAnswer', this.verifyAnswer())
-        console.log('verifyAnswer', this.verifyAnswer())
+        this.$emit('optionSelected', {
+          value: newValue,
+          isCorrect: this.verifyAnswer(),
+        })
       }
     },
   },
   methods: {
     verifyAnswer() {
-      return this.correctAnswer === this.selection
+      console.log('verifyAnswer', this.correctAnswers, this.selection)
+      return this.correctAnswers.includes(this.selection)
     },
   },
 }

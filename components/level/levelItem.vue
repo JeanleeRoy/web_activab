@@ -13,7 +13,7 @@
         alt="Recurso"
       />
     </div>
-    <h3 class="w-36 mt-5 inline-flex justify-center font-bold">{{ getLevelItem() }}</h3>
+    <h3 class="w-36 mt-5 inline-flex justify-center font-bold">{{ getLevelItemNameName() }}</h3>
   </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
       required: true,
     },
     levelItem: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
@@ -52,7 +52,7 @@ export default {
     goToLevelItem() {
       this.$router.push(`/level/${this.level}/${this.levelItem}`)
     },
-    getLevelItem() {
+    getLevelItemNameName() {
       switch (this.type) {
         case 'lecturas':
           return 'Lectura'

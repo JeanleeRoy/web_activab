@@ -1,7 +1,7 @@
 <template>
   <nav class="w-full bg-yellow-300">
     <div class="flex justify-between items-center w-full p-4 max-w-7xl mx-auto">
-      <b class="text-2xl">ActiVAB</b>
+      <b class="text-2xl cursor-pointer" @click="goHome">ActiVAB</b>
       <div v-if="user" class="flex gap-x-4">
         <p>{{ username }}</p>
         <p>{{ dni }}</p>
@@ -52,6 +52,9 @@ export default {
       if (!error) {
         this.$router.push('/')
       }
+    },
+    goHome() {
+      this.$router.push('/')
     },
   },
 }

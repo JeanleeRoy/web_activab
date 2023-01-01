@@ -1,16 +1,19 @@
 <template>
-  <div class="w-full max-w-xl mx-auto p-8">
-    <div class="flex flex-wrap w-full p-8 bg-white rounded-3xl mt-28">
-      <h2 class="font-bold text-center text-4xl">Resuelve el rompecabezas</h2>
-      <img src="~/static/lectura_a/rompecabezaa.jpg" />
-      <Button style="transform: translateX(125%)" @click.native="nextItem">
+  <div class="w-full max-w-7xl mx-auto px-4">
+    <div>
+      <JuegoItem :type="'puzzle'" @completed="onGameCompleted" />
+    </div>
+    <div v-if="showNext" class="flex justify-center mt-6">
+      <GameButton :animate="true" :disabled="disableNext" @click.native="goNextItem">
         Continuar
-      </Button>
+      </GameButton>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="js">
+import JuegoItem from './juegoItem.vue'
+
 export default {
   name: 'Juego',
   props: {
@@ -23,16 +26,22 @@ export default {
       default: false,
     },
   },
-  computed: {
-    lecture() {
-      return `lectura_${this.id}`
-    },
-  },
+  data: () => ({
+    user: null,
+    disableNext: true,
+  }),
   mounted() {
     this.user = this.$supabase.auth.currentUser
+    console.log(this.showNext)
   },
   methods: {
-    async nextItem() {
+    onGameCompleted(isCompleted) {
+      if (isCompleted) {
+        console.log('Juego isCompleted', isCompleted)
+        this.disableNext = false
+      }
+    },
+    async goNextItem() {
       // await this.updateHistory()
       this.$router.push(`/level/${this.levelItem.level}/${this.levelItem.orden + 1}`)
     },
@@ -48,12 +57,6 @@ export default {
       })
     },
   },
+  components: { JuegoItem },
 }
 </script>
-
-<style scoped>
-.escalar {
-  transform: scale(1.25);
-  z-index: -10 !important;
-}
-</style>

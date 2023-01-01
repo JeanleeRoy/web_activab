@@ -5,7 +5,11 @@
     </h1>
     <img class="w-full" :src="require(`~/assets/${question.image}`)" />
     <form class="w-full p-4 mt-2 md:p-6 rounded-lg bg-gray-50">
-      <MultipleChoice :options="options" v-model="isValidAnswer" />
+      <MultipleChoice
+        :options="options"
+        v-model="isValidAnswer"
+        @optionSelected="getChoice"
+      />
     </form>
   </div>
 </template>
@@ -17,6 +21,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Question',
   components: { MultipleChoice },
+  emits: ['handleValid', 'answered'],
   props: {
     question: {
       type: Object,
@@ -29,7 +34,7 @@ export default {
           hint: '',
           type: 'multiple_choice',
           image: 'lectura_1/pregunta_1.jpg',
-          parent: 'lectura_a',
+          parent: 'lectura_1',
         }
       },
     },
@@ -63,7 +68,10 @@ export default {
   methods: {
     fetchAnswers() {
       this.options = this.getAnswers(this.question.parent, this.question.slug)
-      console.log(this.options)
+    },
+    getChoice(choice) {
+      // console.log('question answered: ', choice)
+      this.$emit('answered', choice)
     },
   },
   beforeUnmount() {

@@ -1,4 +1,5 @@
-import { triggerRef } from "vue"
+import { triggerRef } from 'vue'
+import shuffleArray from '~/utils/shuffleArray'
 
 export const state = () => ({
   lectura_1: {
@@ -57,7 +58,7 @@ export const state = () => ({
       },
       {
         id: 'rad_L1C3',
-        text: 'llegó a su escuela',
+        text: 'Llegó a su escuela',
         value: '1C3',
         isCorrect: true,
       },
@@ -1343,8 +1344,8 @@ export const state = () => ({
       },
     ],
   },
-  lectura_17:{
-    pregunta_a:[
+  lectura_17: {
+    pregunta_a: [
       {
         id: 'rad_L17A1',
         text: 'Por desarrollar',
@@ -1362,8 +1363,8 @@ export const state = () => ({
         text: 'Por desarrollar',
         value: '17A3',
         isCorrect: true,
-      }
-    ]
+      },
+    ],
   },
   lectura_18: {
     pregunta_a: [
@@ -1509,8 +1510,8 @@ export const state = () => ({
       },
     ],
   },
-  lectura_20:{
-    pregunta_a:[
+  lectura_20: {
+    pregunta_a: [
       {
         id: 'rad_L20A1',
         text: 'En desarrollo',
@@ -1529,9 +1530,9 @@ export const state = () => ({
         value: '20A3',
         isCorrect: false,
       },
-    ]
+    ],
   },
-  
+
   juego_1: {
     pregunta_a: [
       {
@@ -2150,7 +2151,7 @@ export const state = () => ({
       },
     ],
   },
-  juego_17:{
+  juego_17: {
     pregunta_a: [
       {
         id: 'rad_J17A1',
@@ -2256,7 +2257,7 @@ export const state = () => ({
       },
     ],
   },
-  juego_20:{
+  juego_20: {
     pregunta_a: [
       {
         id: 'rad_J20A1',
@@ -2282,9 +2283,14 @@ export const state = () => ({
 
 export const getters = {
   getAnswersByParentAndQuestion: state => (parent, question) => {
-    console.log(parent, state[parent]['pregunta_a'])
+    // console.log(parent, state[parent]['pregunta_a'])
     if (!parent || !question) return []
-    return state[parent][question] || []
+    // shuffle with sort
+    if (state[parent][question]) {
+      const options = Array.from(state[parent][question])
+      return shuffleArray(options)
+    }
+    return []
   },
 }
 

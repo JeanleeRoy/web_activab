@@ -7,15 +7,24 @@
         :level-item="levelItem"
         :show-next="showNext"
       />
-      <Juego v-if="levelItem.type === 'games'" :level-item="levelItem" />
-      <!-- <LevelGrid /> -->
+      <Juego
+        v-if="levelItem.type === 'games'"
+        :level-item="levelItem"
+        :show-next="showNext"
+      />
+      <Preguntas
+        v-if="levelItem.type === 'questions'"
+        :level-item="levelItem"
+        :show-next="showNext"
+      />
     </div>
   </div>
 </template>
 
 <script lang="js">
 import Lectura from '~/components/level-item/lectura.vue'
-import Juego from '~/components/level-item/juego.vue'
+import Juego from '~/components/level-item/juego'
+import Preguntas from '~/components/level-item/preguntas.vue'
 
 export default {
   name: 'LevelItemView',
@@ -47,23 +56,27 @@ export default {
       .from('levels')
       .select('*')
       .eq('id', this.levelId)
-    this.level = level[0]
+      .single()
+    this.level = level
 
-    const { data: current_level } = await this.$supabase
+    const { data: profile } = await this.$supabase
       .from('profiles')
       .select('current_level')
       .eq('id', this.user.id)
-    this.validLevel = this.level.id <= current_level[0].current_level
+      .single()
+    this.validLevel = this.level.id <= profile.current_level
 
-    const { data: levelItems } = await this.$supabase
+    const { data: levelItem } = await this.$supabase
       .from('level_items')
       .select('*')
       .eq('level', this.levelId)
       .eq('orden', this.itemOrder)
-    this.levelItem = levelItems[0]
-    this.showNext = this.levelItem.orden < this.level.total_items
+      .single()
+    this.showNext = levelItem.orden < this.level.total_items
+    console.log('showNext', this.showNext)
+    this.levelItem = levelItem
   },
   methods: {},
-  components: { Lectura, Juego },
+  components: { Lectura, Juego, Preguntas },
 }
 </script>

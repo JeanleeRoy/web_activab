@@ -24,15 +24,17 @@
         <Button
           v-if="showNext"
           :disabled="curAnswer.isCorrect === null"
-          :value="'Siguiente'"
           @click.native="nextStep"
-        />
+        >
+          Siguiente
+        </Button>
         <Button
           v-if="showSubmmit"
           :disabled="curAnswer.isCorrect === null"
-          :value="'Enviar'"
           @click.native="showQuestions = false"
-        />
+        >
+          Enviar
+        </Button>
       </div>
 
       <div v-else class="w-full max-w-2xl mx-auto pt-16 md:pt-24 lg:pt-32">
@@ -64,7 +66,7 @@
             </div>
           </div>
           <div class="flex justify-center w-full pt-8">
-            <Button />
+            <Button>Hecho</Button>
           </div>
         </div>
       </div>

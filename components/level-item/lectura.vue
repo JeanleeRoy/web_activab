@@ -1,22 +1,31 @@
 <template>
-  <div class="relative w-full my-4 overflow-hidden">
+  <div class="relative w-full mt-4 overflow-hidden">
     <h2 class="font-bold text-center text-4xl">El primer día de clases de Juan</h2>
     <img
       class="w-full mx-auto escalar z-0"
       :src="require(`~/assets/lectura_${this.levelItem.level}/lectura.png`)"
       alt="lectura"
     />
-    <Button
-      v-if="showNext"
-      class="absolute left-1/2 bottom-0 mx-auto z-10"
+    <div
+      class="absolute left-1/2 bottom-0 mx-auto z-10 mb-8"
       style="transform: translateX(-50%)"
-      @click.native="nextItem"
-      >Continuar</Button
     >
+      <GameButton
+        v-if="showNext"
+        id="readingGameBtn"
+        :animate="true"
+        :disabled="!readTimeCompleted"
+        @click.native="nextItem"
+      >
+        Continuar
+      </GameButton>
+    </div>
   </div>
 </template>
 
 <script>
+import GameButton from '../GameButton.vue'
+
 export default {
   name: 'Lectura',
   props: {
@@ -29,15 +38,21 @@ export default {
       default: false,
     },
   },
-  computed: {
-    lecture() {
-      return `lectura_${this.id}`
-    },
-  },
+  data: () => ({
+    user: null,
+    readTimeCompleted: false,
+    readingTime: 5, //seconds
+  }),
   mounted() {
     this.user = this.$supabase.auth.currentUser
+    this.setReadingTime()
   },
   methods: {
+    setReadingTime() {
+      setTimeout(() => {
+        this.readTimeCompleted = true
+      }, this.readingTime * 1000)
+    },
     async nextItem() {
       // await this.updateHistory()
       this.$router.push(`/level/${this.levelItem.level}/${this.levelItem.orden + 1}`)
@@ -54,6 +69,7 @@ export default {
       })
     },
   },
+  components: { GameButton },
 }
 </script>
 
