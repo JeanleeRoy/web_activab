@@ -20,8 +20,9 @@ import AVmultiform from '~/components/AVquestions/AVmultiform.vue'
 import GameButton from '~/components/GameButton.vue'
 
 export default {
-  name: 'IndexPage',
+  name: 'Preguntas',
   components: { AVmultiform, GameButton },
+  emits: ['completed'],
   props: {
     levelItem: {
       type: Object,
@@ -47,9 +48,12 @@ export default {
     onQuestionsCompleted(result) {
       console.log('onQuestionsCompleted', result)
       this.completed = true
-      if (result.score >= this.minScore) {
-        this.approved = true
-      }
+      this.approved = result.score >= this.minScore
+      this.$emit('completed', {
+        completed: this.approved,
+        score: result.score,
+      })
+      console.log('approved', this.approved)
     },
     returnToLevel() {
       this.$router.push(`/level/${this.levelItem.level}`)

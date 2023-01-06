@@ -6,16 +6,19 @@
         v-if="levelItem.type === 'lecturas'"
         :level-item="levelItem"
         :show-next="showNext"
+        @completed="updateHistory"
       />
       <Juego
         v-if="levelItem.type === 'games'"
         :level-item="levelItem"
         :show-next="showNext"
+        @completed="updateHistory"
       />
       <Preguntas
         v-if="levelItem.type === 'questions'"
         :level-item="levelItem"
         :show-next="showNext"
+        @completed="updateHistory"
       />
     </div>
   </div>
@@ -76,7 +79,33 @@ export default {
     console.log('showNext', this.showNext)
     this.levelItem = levelItem
   },
-  methods: {},
+  methods: {
+    async updateHistory(payload) {
+      const { completed, score } = payload
+      console.log('update history')
+      // store action: updateUserHistory
+      await this.$store.dispatch('updateUserHistory', {
+        user_id: this.user.id,
+        level: this.levelItem.level,
+        level_item: this.levelItem.id,
+        item_type: this.levelItem.type,
+        completed,
+        score,
+      })
+      // update level when user complete all level items
+      if (completed && !this.showNext) {
+        await this.updateUserLevel()
+      }
+    },
+    async updateUserLevel() {
+      console.log('update user level')
+      // store action: updateUserLevel
+      await this.$store.dispatch('updateUserLevelTo', {
+        user_id: this.user.id,
+        level: this.levelItem.level + 1,
+      })
+    },
+  },
   components: { Lectura, Juego, Preguntas },
 }
 </script>

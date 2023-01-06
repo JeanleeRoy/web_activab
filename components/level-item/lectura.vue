@@ -28,6 +28,7 @@ import GameButton from '../GameButton.vue'
 
 export default {
   name: 'Lectura',
+  emits: ['completed'],
   props: {
     levelItem: {
       type: Object,
@@ -44,7 +45,7 @@ export default {
     readingTime: 5, //seconds
   }),
   mounted() {
-    this.user = this.$supabase.auth.currentUser
+    // this.user = this.$supabase.auth.currentUser
     this.setReadingTime()
   },
   methods: {
@@ -55,15 +56,20 @@ export default {
     },
     async nextItem() {
       // await this.updateHistory()
+      this.$emit('completed', {
+        completed: true,
+        score: 0,
+      })
       this.$router.push(`/level/${this.levelItem.level}/${this.levelItem.orden + 1}`)
     },
     async updateHistory() {
-      console.log('update history')
+      // console.log('update history')
       // store action: updateUserHistory
       await this.$store.dispatch('updateUserHistory', {
         user_id: this.user.id,
         level: this.levelItem.level,
         level_item: this.levelItem.id,
+        level_type: this.levelItem.type,
         completed: true,
         score: 0,
       })

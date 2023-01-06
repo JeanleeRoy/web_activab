@@ -1,9 +1,16 @@
 <template>
   <div
-    class="w-fit"
+    class="relative w-fit"
     :class="{ 'pointer-events-none opacity-50 select-none': disabled }"
     @click="goToLevelItem"
   >
+    <img
+      v-if="isDone"
+      src="~/assets/img/icons/validated.png"
+      class="absolute top-0 right-0 w-8 h-8 z-10"
+      alt="done"
+      title="Elemento completado"
+    />
     <div
       class="group border-4 border-yellow-300 w-36 h-36 bg-gray-200 rounded-full cursor-pointer shadow-lg overflow-hidden hover:shadow-xl transition-all ease duration-300"
     >
@@ -39,10 +46,17 @@ export default {
       type: Number,
       required: true,
     },
+    completed: {
+      type: Boolean,
+      required: false,
+    },
   },
   computed: {
     imageName() {
       return itemTypes.includes(this.type) ? `${this.type}.png` : 'default.png'
+    },
+    isDone() {
+      return this.completed
     },
   },
   data: () => ({

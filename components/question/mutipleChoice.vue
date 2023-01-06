@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     verifyAnswer() {
-      console.log('verifyAnswer', this.correctAnswers, this.selection)
+      // console.log('verifyAnswer', this.correctAnswers, this.selection)
       return this.correctAnswers.includes(this.selection)
     },
   },

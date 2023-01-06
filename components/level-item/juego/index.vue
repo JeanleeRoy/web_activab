@@ -16,6 +16,7 @@ import JuegoItem from './juegoItem.vue'
 
 export default {
   name: 'Juego',
+  emits: ['completed'],
   props: {
     levelItem: {
       type: Object,
@@ -31,13 +32,17 @@ export default {
     disableNext: true,
   }),
   mounted() {
-    this.user = this.$supabase.auth.currentUser
-    console.log(this.showNext)
+    // this.user = this.$supabase.auth.currentUser
+    // console.log(this.showNext)
   },
   methods: {
     onGameCompleted(isCompleted) {
       if (isCompleted) {
         console.log('Juego isCompleted', isCompleted)
+        this.$emit('completed', {
+          completed: true,
+          score: 0,
+        })
         this.disableNext = false
       }
     },
@@ -46,12 +51,13 @@ export default {
       this.$router.push(`/level/${this.levelItem.level}/${this.levelItem.orden + 1}`)
     },
     async updateHistory() {
-      console.log('update history')
+      // console.log('update history')
       // store action: updateUserHistory
       await this.$store.dispatch('updateUserHistory', {
         user_id: this.user.id,
         level: this.levelItem.level,
         level_item: this.levelItem.id,
+        item_type: this.levelItem.type,
         completed: true,
         score: 0,
       })
