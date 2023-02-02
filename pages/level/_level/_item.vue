@@ -20,6 +20,11 @@
         :show-next="showNext"
         @completed="updateHistory"
       />
+      <div v-if="activeNextLevel" class="flex justify-center pt-4 pb-8">
+        <GameButton :disabled="false" :animate="true" @click="goNextLevel">
+          Siguiente Nivel
+        </GameButton>
+      </div>
     </div>
   </div>
 </template>
@@ -28,6 +33,7 @@
 import Lectura from '~/components/level-item/lectura.vue'
 import Juego from '~/components/level-item/juego'
 import Preguntas from '~/components/level-item/preguntas.vue'
+import GameButton from '~/components/GameButton.vue'
 
 export default {
   name: 'LevelItemView',
@@ -37,6 +43,7 @@ export default {
     levelItem: null,
     validLevel: false,
     showNext: false,
+    activeNextLevel: false,
   }),
   head() {
     return {
@@ -95,6 +102,7 @@ export default {
       // update level when user complete all level items
       if (completed && !this.showNext) {
         await this.updateUserLevel()
+        this.activeNextLevel = true
       }
     },
     async updateUserLevel() {
@@ -105,7 +113,10 @@ export default {
         level: this.levelItem.level + 1,
       })
     },
+    goNextLevel() {
+      this.$router.push(`/level/${this.levelItem.level + 1}`)
+    },
   },
-  components: { Lectura, Juego, Preguntas },
+  components: { Lectura, Juego, Preguntas, GameButton },
 }
 </script>

@@ -16,6 +16,11 @@
         <div>
           <p>{{ level?.description }}</p>
           <LevelItemsGrid :level="Number(id)" />
+          <div v-if="validNextLevel" class="flex justify-center pt-4 pb-8">
+            <GameButton :disabled="false" @click="goNextLevel">
+              Siguiente Nivel
+            </GameButton>
+          </div>
         </div>
       </div>
     </div>
@@ -23,12 +28,16 @@
 </template>
 
 <script>
+import GameButton from '~/components/GameButton.vue'
 import LevelItemsGrid from '~/components/level/levelItemsGrid.vue'
 
 export default {
   computed: {
     lecture() {
       return `lectura_${this.id}`
+    },
+    validNextLevel() {
+      return this.currentLevel ? this.level.id + 1 <= this.currentLevel : false
     },
   },
   async mounted() {
@@ -41,6 +50,7 @@ export default {
     validLevel: true,
     user: null,
     level: null,
+    currentLevel: null,
   }),
   async asyncData({ params }) {
     const id = params.level
@@ -56,9 +66,15 @@ export default {
       .from('profiles')
       .select('current_level')
       .eq('id', this.user.id)
-    this.validLevel = this.level.id <= current_level[0].current_level
+    this.currentLevel = current_level[0].current_level
+    this.validLevel = this.level.id <= this.currentLevel
   },
-  components: { LevelItemsGrid },
+  methods: {
+    goNextLevel() {
+      this.$router.push(`/level/${this.level.id + 1}`)
+    },
+  },
+  components: { LevelItemsGrid, GameButton },
 }
 </script>
 
