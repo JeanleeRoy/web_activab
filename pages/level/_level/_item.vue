@@ -106,7 +106,7 @@ export default {
       }
     },
     async updateUserLevel() {
-      console.log('update user level')
+      // console.log('update user level')
       // store action: updateUserLevel
       await this.$store.dispatch('updateUserLevelTo', {
         user_id: this.user.id,

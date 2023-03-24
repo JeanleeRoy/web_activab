@@ -9,7 +9,7 @@ export const mutations = {}
 
 export const actions = {
   async updateUserHistory(context, payload) {
-    console.log('updateUserHistory', payload)
+    // console.log('updateUserHistory with', payload)
     const { item_type, ...body } = payload
 
     if (item_type !== 'questions') {
@@ -22,15 +22,16 @@ export const actions = {
         .order('score', { ascending: false })
         .order('created_at', { ascending: false })
         .limit(1)
+        .single()
       // console.log('old_history', old_history)
 
-      if (old_history.length > 0) {
-        const history = old_history[0]
-        if (body.score < history.score) {
+      if (old_history) {
+        if (body.score <= old_history.score) {
           return false
-        } else if (history.completed) {
-          return false
-        }
+        } 
+        // else if (old_history.completed) {
+        //   return false
+        // }
       }
     }
 
@@ -52,6 +53,7 @@ export const actions = {
     if (current_level.current_level >= payload.level) {
       return false
     }
+    console.log('update user level')
     const { data, error } = await this.$supabase
       .from('profiles')
       .update({ current_level: payload.level })

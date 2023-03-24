@@ -11,7 +11,7 @@
 
       <div class="grid gap-16 sm:grid-cols-2">
         <div class="hidden w-full p-8 rounded-3xl bg-gray-200 sm:block">
-          <img class="h-full w-full" :src="level?.image_url" alt="" />
+          <img class="h-full w-full object-contain" :src="level?.image_url" alt="" />
         </div>
         <div>
           <p>{{ level?.description }}</p>
