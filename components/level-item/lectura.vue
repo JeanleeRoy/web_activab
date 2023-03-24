@@ -1,17 +1,29 @@
 <template>
   <div class="relative w-full mt-4 overflow-hidden">
-    <h2 class="font-bold text-center text-4xl">El primer día de clases de Juan</h2>
+    <h2 class="relative font-bold text-center px-4 text-2xl sm:text-3xl md:text-4xl">
+      {{ _lecture?.title || '...' }}
+
+      <div class="absolute w-full left-0 flex justify-center p-4">
+        <a
+          class="flex items-center gap-x-4 z-10 text-lg text-blue-400"
+          :href="`${path}/${lectureName}/${lectureName}.pdf`"
+        >
+          <img class="inline-block h-7" src="~/assets/img/download.png" />
+          <span> Descargar lectura </span>
+        </a>
+      </div>
+    </h2>
     <img
-      class="w-full mx-auto escalar z-0"
-      :src="require(`~/assets/lectura_${this.levelItem.level}/lectura.png`)"
+      class="w-full mx-auto escalar -z-1 mt-10 xs:mt-8 sm:mt-4 md:mt-0"
+      :src="require(`~/assets/${lectureName}/lectura.png`)"
       alt="lectura"
     />
     <div
-      class="absolute left-1/2 bottom-0 mx-auto z-10 mb-8"
+      class="absolute left-1/2 -bottom-8 mx-auto z-10 mb-8 xs:-bottom-6 sm:-bottom-4 md:-bottom-0"
       style="transform: translateX(-50%)"
     >
       <GameButton
-        v-if="showNext"
+        v-if="showNext && showBtn"
         id="readingGameBtn"
         :animate="true"
         :disabled="!readTimeCompleted"
@@ -25,6 +37,7 @@
 
 <script>
 import GameButton from '../GameButton.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Lectura',
@@ -41,12 +54,27 @@ export default {
   },
   data: () => ({
     user: null,
+    _lecture: null,
     readTimeCompleted: false,
     readingTime: 5, //seconds
+    showBtn: false,
+    path: 'https://github.com/JeanleeRoy/web_activab/raw/dev/assets',
   }),
+  computed: {
+    lectureName() {
+      return `lectura_${this.levelItem.level}`
+    },
+    ...mapGetters({
+      getLecture: 'lectures/getLecture',
+    }),
+  },
   mounted() {
     // this.user = this.$supabase.auth.currentUser
+    this._lecture = this.getLecture(this.lectureName)
     this.setReadingTime()
+    setTimeout(() => {
+      this.showBtn = true
+    }, 1000)
   },
   methods: {
     setReadingTime() {
