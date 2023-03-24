@@ -108,13 +108,13 @@ export default {
   name: 'Multiform',
   emits: ['completed'],
   props: {
-    lecture: {
+    slug: {
       type: String,
       default: 'lectura_1',
     },
     minSocore: {
       type: Number,
-      default: 4,
+      default: 1,
     },
   },
   data: () => ({
@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     fetchQuestions() {
-      this.questions = this.getQuestions(this.lecture)
+      this.questions = this.getQuestions(this.slug)
       this.answers = this.questions.map(question => {
         return { name: question.text, isCorrect: null }
       })
