@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="flex flex-col gap-8 pb-4">
+    <h2 class="text-3xl font-semibold text-center">{{ title }}</h2>
     <MemoryGame
       v-if="cards?.length"
       :pairs="pairs"
       :cards="cards"
-      :initial-hint-time="1800"
+      :initial-hint-time="initialTime"
+      :cover-image="coverImage"
       @completed="onCompleted"
     />
   </div>
@@ -18,6 +20,10 @@ export default {
   emits: ['is-completed'],
   components: { MemoryGame },
   props: {
+    title: {
+      type: String,
+      default: 'Memory Game',
+    },
     pairs: {
       type: Number,
       default: 4,
@@ -29,6 +35,10 @@ export default {
     coverImage: {
       type: String,
       default: 'img/a.jpg',
+    },
+    initialTime: {
+      type: Number,
+      default: 2000,
     },
   },
   methods: {

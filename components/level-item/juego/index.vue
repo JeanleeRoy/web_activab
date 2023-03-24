@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4">
+  <div v-if="game" class="w-full max-w-7xl mx-auto px-4">
     <div>
-      <JuegoItem :type="'puzzle'" @completed="onGameCompleted" />
+      <JuegoItem :game="game" @completed="onGameCompleted" />
     </div>
     <div v-if="showNext" class="flex justify-center mt-6">
       <GameButton :animate="true" :disabled="disableNext" @click.native="goNextItem">
@@ -9,10 +9,14 @@
       </GameButton>
     </div>
   </div>
+  <div v-else>
+    <p class="text-center sm:text-xl">No se encontró el juego</p>
+  </div>
 </template>
 
 <script lang="js">
 import JuegoItem from './juegoItem.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Juego',
@@ -30,8 +34,18 @@ export default {
   data: () => ({
     user: null,
     disableNext: true,
+    game: null,
   }),
+  computed: {
+    gameId() {
+      return this.levelItem.internal_id
+    },
+    ...mapGetters({
+      getGame: 'games/getGame',
+    }),
+  },
   mounted() {
+    this.game = this.getGame(this.gameId)
     // this.user = this.$supabase.auth.currentUser
     // console.log(this.showNext)
   },
@@ -41,7 +55,7 @@ export default {
         console.log('Juego isCompleted', isCompleted)
         this.$emit('completed', {
           completed: true,
-          score: 0,
+          score: 1,
         })
         this.disableNext = false
       }
