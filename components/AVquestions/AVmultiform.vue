@@ -112,7 +112,7 @@ export default {
       type: String,
       default: 'lectura_1',
     },
-    minSocore: {
+    minScore: {
       type: Number,
       default: 1,
     },
@@ -147,7 +147,7 @@ export default {
       return this.answers[this.curPosition]
     },
     approved() {
-      return this.score >= this.minSocore
+      return this.score >= this.minScore
     },
   },
   mounted() {
