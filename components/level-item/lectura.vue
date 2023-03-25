@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full mt-4 overflow-hidden">
+  <div class="relative w-full mt-4">
     <h2 class="relative font-bold text-center px-4 text-2xl sm:text-3xl md:text-4xl">
       {{ lecture?.title || '...' }}
 
@@ -13,14 +13,16 @@
         </a>
       </div>
     </h2>
-    <img
+    <div class="w-full overflow-hidden">
+      <img
       class="w-full mx-auto escalar -z-1 mt-10 xs:mt-8 sm:mt-4 md:mt-0"
       :style="{ transform: `scale(${lecture?.scale || 1.25})` }"
       :src="require(`~/assets/${lectureName}/lectura.png`)"
       alt="lectura"
     />
+    </div>
     <div
-      class="absolute left-1/2 -bottom-8 mx-auto z-10 mb-8 xs:-bottom-6 sm:-bottom-4 md:-bottom-0"
+      class="absolute left-1/2 -bottom-8 mx-auto z-10 mb-0 xs:-bottom-6 sm:mb-4 md:mb-8"
       style="transform: translateX(-50%)"
     >
       <GameButton
