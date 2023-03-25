@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-full mt-4 overflow-hidden">
     <h2 class="relative font-bold text-center px-4 text-2xl sm:text-3xl md:text-4xl">
-      {{ _lecture?.title || '...' }}
+      {{ lecture?.title || '...' }}
 
       <div class="absolute w-full left-0 flex justify-center p-4">
         <a
@@ -54,7 +54,7 @@ export default {
   },
   data: () => ({
     user: null,
-    _lecture: null,
+    lecture: null,
     readTimeCompleted: false,
     readingTime: 5, //seconds
     showBtn: false,
@@ -70,7 +70,7 @@ export default {
   },
   mounted() {
     // this.user = this.$supabase.auth.currentUser
-    this._lecture = this.getLecture(this.lectureName)
+    this.lecture = this.getLecture(this.lectureName)
     this.setReadingTime()
     setTimeout(() => {
       this.showBtn = true
