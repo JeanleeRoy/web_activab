@@ -32,6 +32,11 @@ export const state = () => ({
       title: "Danzas Folklóricas del Perú",
       pdf: "/lectura_7/lectura.png",
       // scale: 1.2,
+    },
+    lectura_8: {
+      title: "Querida Santa Rosa de Lima",
+      pdf: "/lectura_8/lectura_8.pdf",
+      scale: 1.1,
     }
   }
 })

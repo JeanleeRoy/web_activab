@@ -83,6 +83,14 @@ export const state = () => ({
         coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
       },
     },
+    8: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_8/pregunta.jpg',
+      },
+    },
   },
 })
 

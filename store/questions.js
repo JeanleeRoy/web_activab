@@ -258,7 +258,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_8/pregunta_1.png',
+      image: 'lectura_8/pregunta_1.jpg',
       parent: 'lectura_8',
     },
     {
@@ -267,7 +267,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_8/pregunta_2.png',
+      image: 'lectura_8/pregunta_2.jpg',
       parent: 'lectura_8',
     },
     {
@@ -276,7 +276,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_8/pregunta_3.png',
+      image: 'lectura_8/pregunta_3.jpg',
       parent: 'lectura_8',
     },
     {
@@ -285,7 +285,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_8/pregunta_4.png',
+      image: 'lectura_8/pregunta_4.jpg',
       parent: 'lectura_8',
     },
     {
@@ -1036,6 +1036,10 @@ export const state = () => ({
     },
     {
       slug: 'lectura_7',
+      minScore: 3,
+    },
+    {
+      slug: 'lectura_8',
       minScore: 3,
     },
   ],
