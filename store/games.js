@@ -58,6 +58,14 @@ export const state = () => ({
           'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_5/Batalla_de_junin.jpg?raw=true',
       },
     },
+    6: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_6/pregunta.jpg?raw=true',
+      },
+    },
   },
 })
 

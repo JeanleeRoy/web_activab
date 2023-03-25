@@ -22,6 +22,11 @@ export const state = () => ({
       title: "Huellas del tiempo",
       pdf: "/assets/lectura_5/lectura_5.pdf",
       scale: 1.2,
+    },
+    lectura_6: {
+      title: "La Leyenda del Río Amazonas",
+      pdf: "/assets/lectura_6/lectura_6.pdf",
+      scale: 1.2,
     }
   }
 })
