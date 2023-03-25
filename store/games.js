@@ -5,7 +5,7 @@ export const state = () => ({
       type: 'puzzle',
       props: {
         imageUrl:
-          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_2/pregunta_3.jpg?raw=true',
+          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/img/0.jpg?raw=true',
       },
     },
     2: {
