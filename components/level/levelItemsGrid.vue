@@ -44,7 +44,7 @@ export default {
 
     const { data: items_completed } = await this.$supabase.rpc('level_items_completed', {
       cur_user_id: this.user.id,
-      cur_level: 1,
+      cur_level: this.level,
     })
     this.completed = items_completed.reduce((result, item) => {
       result.push(item.level_item_id)

@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full max-w-7xl mx-auto px-4">
-    <AVmultiform :min-socore="minScore" @completed="onQuestionsCompleted" />
+  <div v-if="multiform" class="w-full max-w-7xl mx-auto px-4">
+    <AVmultiform v-bind="multiform" @completed="onQuestionsCompleted" />
     <div v-if="completed" class="flex justify-center mt-6">
       <GameButton
         v-if="showNext && approved"
@@ -18,6 +18,7 @@
 <script>
 import AVmultiform from '~/components/AVquestions/AVmultiform.vue'
 import GameButton from '~/components/GameButton.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Preguntas',
@@ -34,16 +35,25 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      getMultiform: 'questions/getMultiform',
+    }),
     minScore() {
-      return this.question ? this.question.min_score : 3
+      return this.multiform?.minScore || 1
+    },
+    slug() {
+      return `lectura_${this.levelItem.level}`
     },
   },
   data: () => ({
     user: null,
     completed: false,
     approved: false,
-    question: null,
+    multiform: null,
   }),
+  mounted() {
+    this.multiform = this.getMultiform(this.slug)
+  },
   methods: {
     onQuestionsCompleted(result) {
       console.log('onQuestionsCompleted', result)

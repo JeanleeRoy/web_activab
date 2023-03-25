@@ -9,7 +9,11 @@
     >
       <img
         class="w-full h-full fit-object-contain p-2 rotate-12"
-        :src="imageUrl"
+        :src="
+          imageUrl
+            ? imageUrl
+            : 'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/static/favicon.ico'
+        "
         :alt="levelText"
       />
       <div

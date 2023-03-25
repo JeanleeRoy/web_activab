@@ -3,6 +3,7 @@
     class="gameButton"
     :class="{ active: !disabled && animate }"
     :disabled="disabled"
+    @click.native="$emit('click')"
   >
     <slot />
   </Button>
@@ -11,6 +12,7 @@
 <script>
 export default {
   name: 'GameButton',
+  emits: ['click'],
   props: {
     disabled: {
       type: Boolean,

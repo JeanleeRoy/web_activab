@@ -1,26 +1,39 @@
 <template>
   <div>
     <template v-if="type === 'puzzle'">
-      <AVPuzzle @is-completed="validateState" />
+      <AVPuzzle v-bind="game.props" @is-completed="validateState" />
+    </template>
+    <template v-if="type === 'memory'">
+      <AVMemory v-bind="game.props" @is-completed="validateState" />
+    </template>
+    <template v-if="type === 'maze'">
+      <AvMaze v-bind="game.props" @is-completed="validateState" />
     </template>
   </div>
 </template>
 
 <script>
 import AVPuzzle from '~/components/AVgames/AVPuzzle.vue'
+import AVMemory from '~/components/AVgames/AVMemory.vue'
+import AvMaze from '~/components/AVgames/AVMaze.vue'
 
 export default {
   name: 'JuegoItem',
   emits: ['completed'],
   props: {
-    type: {
-      type: String,
+    game: {
+      type: Object,
       required: true,
     },
   },
   data: () => ({
     completed: false,
   }),
+  computed: {
+    type() {
+      return this.game.type
+    },
+  },
   methods: {
     validateState(isCompleted) {
       if (isCompleted) {
@@ -30,6 +43,6 @@ export default {
       }
     },
   },
-  components: { AVPuzzle },
+  components: { AVPuzzle, AVMemory, AvMaze },
 }
 </script>
