@@ -146,11 +146,11 @@ export const state = () => ({
     },
     {
       slug: 'pregunta_a',
-      text: '¿De qué batalla de trata en el texto?',
+      text: '¿De qué batalla se trata en el texto?',
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_5/pregunta_1.png',
+      image: 'lectura_5/pregunta_1.jpg',
       parent: 'lectura_5',
     },
     {
@@ -159,7 +159,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_5/pregunta_2.png',
+      image: 'lectura_5/pregunta_2.jpg',
       parent: 'lectura_5',
     },
     {
@@ -168,7 +168,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_5/pregunta_3.png',
+      image: 'lectura_5/pregunta_3.jpg',
       parent: 'lectura_5',
     },
     {
@@ -177,7 +177,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_5/pregunta_4.png',
+      image: 'lectura_5/pregunta_4.jpg',
       parent: 'lectura_5',
     },
     {
@@ -1024,6 +1024,10 @@ export const state = () => ({
     },
     {
       slug: 'lectura_4',
+      minScore: 3,
+    },
+    {
+      slug: 'lectura_5',
       minScore: 3,
     },
   ],

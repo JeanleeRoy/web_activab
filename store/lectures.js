@@ -15,8 +15,13 @@ export const state = () => ({
     },
     lectura_4: {
       title: "Yo soy peruana",
-      pdf: "/assets/lectura_2/lectura_4.pdf",
+      pdf: "/assets/lectura_4/lectura_4.pdf",
       scale: 1.1,
+    },
+    lectura_5: {
+      title: "Huellas del tiempo",
+      pdf: "/assets/lectura_5/lectura_5.pdf",
+      scale: 1.2,
     }
   }
 })

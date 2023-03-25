@@ -50,6 +50,14 @@ export const state = () => ({
         coverImage: 'https://cdn-icons-png.flaticon.com/512/7186/7186926.png',
       },
     },
+    5: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_5/Batalla_de_junin.jpg?raw=true',
+      },
+    },
   },
 })
 

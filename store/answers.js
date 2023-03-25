@@ -336,7 +336,7 @@ export const state = () => ({
         id: 'rad_L5A1',
         text: 'Batalla de Junín',
         value: '5A1',
-        isCorrect: false,
+        isCorrect: true,
       },
       {
         id: 'rad_L5A2',
@@ -348,7 +348,7 @@ export const state = () => ({
         id: 'rad_L5A3',
         text: 'Batalla de Ayacucho.',
         value: '5A3',
-        isCorrect: true,
+        isCorrect: false,
       },
     ],
     pregunta_b: [
