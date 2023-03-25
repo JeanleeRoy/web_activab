@@ -5,7 +5,7 @@ export const state = () => ({
       type: 'puzzle',
       props: {
         imageUrl:
-          'https://github.com/JeanleeRoy/web_activab/blob/master/assets/img/0.jpg?raw=true',
+          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_2/pregunta_3.jpg?raw=true',
       },
     },
     2: {
@@ -28,6 +28,13 @@ export const state = () => ({
           { img: 'lectura_11/4.jpg', tag: 4 },
         ],
         coverImage: 'https://cdn-icons-png.flaticon.com/512/7186/7186917.png',
+      },
+    },
+    3: {
+      type: 'maze',
+      props: {
+        avatarImage: 'https://cdn-icons-png.flaticon.com/512/1683/1683769.png',
+        goalImage: 'https://cdn-icons-png.flaticon.com/512/1775/1775888.png',
       },
     },
   },
