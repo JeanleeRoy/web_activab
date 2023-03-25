@@ -15,6 +15,7 @@
     </h2>
     <img
       class="w-full mx-auto escalar -z-1 mt-10 xs:mt-8 sm:mt-4 md:mt-0"
+      :style="{ transform: `scale(${lecture?.scale || 1.25})` }"
       :src="require(`~/assets/${lectureName}/lectura.png`)"
       alt="lectura"
     />
@@ -109,7 +110,6 @@ export default {
 
 <style scoped>
 .escalar {
-  transform: scale(1.25);
   z-index: -10 !important;
 }
 </style>

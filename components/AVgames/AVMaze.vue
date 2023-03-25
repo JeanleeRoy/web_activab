@@ -24,7 +24,7 @@
           class="h-10 w-10 object-contain duration-100"
           :src="reloadIcon"
           alt="Recargar juego"
-          title="Actualizar laberinto"
+          title="Recargar laberinto"
         />
       </button>
     </div>

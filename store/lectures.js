@@ -8,6 +8,12 @@ export const state = () => ({
       title: "El Payaso Pirulín",
       pdf: "/assets/lectura_2/lectura_2.pdf"
     },
+    lectura_3: {
+      title: "Maestro Peruano",
+      pdf: "/assets/lectura_3/lectura_3.pdf",
+      scale: 1.05,
+      button: 30
+    },
   }
 })
 
