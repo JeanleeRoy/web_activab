@@ -57,6 +57,7 @@ export default {
   methods: {
     onQuestionsCompleted(result) {
       console.log('onQuestionsCompleted', result)
+      // console.log('minScore', this.minScore)
       this.completed = true
       this.approved = result.score >= this.minScore
       this.$emit('completed', {
