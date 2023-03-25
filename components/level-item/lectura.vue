@@ -6,7 +6,7 @@
       <div class="absolute w-full left-0 flex justify-center p-4">
         <a
           class="flex items-center gap-x-4 z-10 text-lg text-blue-400"
-          :href="`${path}/${lectureName}/${lectureName}.pdf`"
+          :href="lecturePath"
         >
           <img class="inline-block h-7" src="~/assets/img/download.png" />
           <span> Descargar lectura </span>
@@ -15,11 +15,11 @@
     </h2>
     <div class="w-full overflow-hidden">
       <img
-      class="w-full mx-auto escalar -z-1 mt-10 xs:mt-8 sm:mt-4 md:mt-0"
-      :style="{ transform: `scale(${lecture?.scale || 1.25})` }"
-      :src="require(`~/assets/${lectureName}/lectura.png`)"
-      alt="lectura"
-    />
+        class="w-full mx-auto escalar -z-1 mt-10 xs:mt-8 sm:mt-4 md:mt-0"
+        :style="{ transform: `scale(${lecture?.scale || 1.25})` }"
+        :src="require(`~/assets/${lectureName}/lectura.png`)"
+        alt="lectura"
+      />
     </div>
     <div
       class="absolute left-1/2 -bottom-8 mx-auto z-10 mb-0 xs:-bottom-6 sm:mb-4 md:mb-8"
@@ -66,6 +66,10 @@ export default {
   computed: {
     lectureName() {
       return `lectura_${this.levelItem.level}`
+    },
+    lecturePath() {
+      if (this.lecture?.pdf) return `${this.path}${this.lecture.pdf}`
+      return `${this.path}/${this.lectureName}/${this.lectureName}.pdf`
     },
     ...mapGetters({
       getLecture: 'lectures/getLecture',

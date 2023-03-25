@@ -44,7 +44,9 @@ export default {
   methods: {
     onCompleted(val) {
       // console.log('Memory Game completed', val)
-      this.$emit('is-completed', val)
+      setTimeout(() => {
+        this.$emit('is-completed', val)
+      }, 1000)
     },
   },
 }

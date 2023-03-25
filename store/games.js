@@ -66,6 +66,23 @@ export const state = () => ({
           'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_6/pregunta.jpg?raw=true',
       },
     },
+    7: {
+      type: 'memory',
+      props: {
+        title: 'Relaciona cada danza con su nombre',
+        pairs: 3,
+        initialTime: 3000,
+        cards: [
+          { img: 'lectura_7/sample.png', tag: 1 },
+          { img: 'lectura_7/sample.png', tag: 1 },
+          { img: 'lectura_7/sample.png', tag: 1 },
+          { img: 'lectura_7/sample.png', tag: 1 },
+          { img: 'lectura_7/sample.png', tag: 1 },
+          { img: 'lectura_7/sample.png', tag: 1 },
+        ],
+        coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
+      },
+    },
   },
 })
 
