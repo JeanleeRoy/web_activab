@@ -91,6 +91,25 @@ export const state = () => ({
           'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_8/pregunta.jpg',
       },
     },
+    9: {
+      type: 'memory',
+      props: {
+        title: 'Relaciona cada con su par',
+        pairs: 4,
+        initialTime: 3000,
+        cards: [
+          { img: 'lectura_9/a.png', tag: 1 },
+          { img: 'lectura_9/b.png', tag: 2 },
+          { img: 'lectura_9/c.png', tag: 3 },
+          { img: 'lectura_9/d.png', tag: 4 },
+          { img: 'lectura_9/a.png', tag: 1 },
+          { img: 'lectura_9/b.png', tag: 2 },
+          { img: 'lectura_9/c.png', tag: 3 },
+          { img: 'lectura_9/d.png', tag: 4 },
+        ],
+        coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
+      },
+    },
   },
 })
 

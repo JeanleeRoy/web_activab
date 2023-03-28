@@ -37,6 +37,11 @@ export const state = () => ({
       title: "Querida Santa Rosa de Lima",
       pdf: "/lectura_8/lectura_8.pdf",
       scale: 1.1,
+    },
+    lectura_9: {
+      title: "¿Cómo ser un buen peatón?",
+      // pdf: "", // default pdf
+      scale: 1.1,
     }
   }
 })
