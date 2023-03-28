@@ -2,7 +2,7 @@
   <div
     class="relative w-fit"
     :class="{ 'pointer-events-none opacity-50 select-none': disabled }"
-    @click="goToLevelItem"
+    @click="handleLevelSelection"
   >
     <img
       v-if="isDone"
@@ -20,15 +20,18 @@
         alt="Recurso"
       />
     </div>
-    <h3 class="w-36 mt-5 inline-flex justify-center font-bold">{{ getLevelItemNameName() }}</h3>
+    <h3 class="w-36 mt-5 inline-flex justify-center font-bold">
+      {{ getLevelItemNameName() }}
+    </h3>
   </div>
 </template>
 
 <script>
-const itemTypes = ['lecturas', 'games', 'questions']
+const itemTypes = ['advice', 'lecturas', 'games', 'questions']
 
 export default {
   name: 'levelItem',
+  emits: ['advice'],
   props: {
     type: {
       type: String,
@@ -63,6 +66,13 @@ export default {
     number: 0,
   }),
   methods: {
+    handleLevelSelection() {
+      if (this.type === 'advice') {
+        this.$emit('advice')
+      } else {
+        this.goToLevelItem()
+      }
+    },
     goToLevelItem() {
       this.$router.push(`/level/${this.level}/${this.levelItem}`)
     },
@@ -74,6 +84,8 @@ export default {
           return 'Juego'
         case 'questions':
           return 'Preguntas'
+        case 'advice':
+          return 'Recomendación'
         default:
           return 'Recurso'
       }

@@ -10,13 +10,33 @@
       :level-item="item.orden"
       :disabled="!item.enabled"
       :completed="item.completed"
+      @advice="handleShowAdvice"
     />
+
+    <AdviceModal v-model="showAdvice">
+      <template #default v-if="adviceItem?.info">
+        <div v-html="adviceItem.info"></div>
+      </template>
+      <template #action>
+        <GameButton
+          :disabled="false"
+          :loading="updatingAdvice"
+          @click="handleCloseAdvice"
+        >
+          Entendido
+        </GameButton>
+      </template>
+    </AdviceModal>
   </div>
 </template>
 
 <script>
+import AdviceModal from '~/components/AVcomponents/AdviceModal.vue'
+import GameButton from '~/components/GameButton.vue'
+
 export default {
   name: 'LevelItemsGrid',
+  components: { AdviceModal, GameButton },
   props: {
     level: {
       type: Number,
@@ -24,10 +44,18 @@ export default {
     },
   },
 
+  computed: {
+    adviceItem() {
+      return this.levelItems.find(item => item.type === 'advice')
+    },
+  },
+
   data: () => ({
     levelItems: [],
     user: null,
-    completed: []
+    completed: [],
+    showAdvice: false,
+    updatingAdvice: false,
   }),
 
   mounted() {
@@ -58,13 +86,46 @@ export default {
       if (index === 0) {
         item.enabled = true
       } else {
-        item.enabled = Boolean(array[index - 1].completed)
+        item.enabled =
+          Boolean(array[index - 1].completed) && Boolean(array[index - 1].enabled)
       }
       return item
     })
 
     // console.log(this.completed)
     // console.log(this.levelItems)
+  },
+
+  methods: {
+    handleShowAdvice() {
+      this.showAdvice = true
+    },
+
+    async handleCloseAdvice() {
+      if (!this.adviceItem?.completed) {
+        this.updatingAdvice = true
+        await this.updateAdviceItem()
+        this.levelItems.forEach((item, index) => {
+          if (item.type === 'advice') {
+            this.levelItems[index].completed = true
+            if (this.levelItems[index + 1]) this.levelItems[index + 1].enabled = true
+          } else if (item.completed) item.enabled = true
+        })
+        this.updatingAdvice = false
+      }
+      this.showAdvice = false
+    },
+
+    async updateAdviceItem() {
+      await this.$store.dispatch('updateUserHistory', {
+        user_id: this.user.id,
+        level: this.adviceItem.level,
+        level_item: this.adviceItem.id,
+        item_type: this.adviceItem.type,
+        completed: true,
+        score: 1,
+      })
+    },
   },
 }
 </script>
