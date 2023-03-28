@@ -1,11 +1,18 @@
 <template>
   <Button
-    class="gameButton"
-    :class="{ active: !disabled && animate }"
-    :disabled="disabled"
+    class="w-fit mgameButton"
+    :class="{ active: !buttonDisable && animate }"
+    :disabled="buttonDisable"
     @click.native="$emit('click')"
   >
-    <slot />
+    <div class="w-fit pointer-events-none flex items-center justify-center gap-x-2 pt-1">
+      <img
+        v-show="loading"
+        class="h-5 animate-spin"
+        :src="require('~/assets/img/sync.png')"
+      />
+      <slot />
+    </div>
   </Button>
 </template>
 
@@ -18,9 +25,18 @@ export default {
       type: Boolean,
       default: true,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     animate: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    buttonDisable() {
+      return this.disabled || this.loading
     },
   },
 }
