@@ -1,8 +1,9 @@
 <template>
   <div class="flex flex-wrap w-full max-w-2xl">
-    <h1 class="w-full mb-4 text-center text-3xl font-semibold">
-      {{ question.text }}
-    </h1>
+    <h1
+      class="w-full mb-4 text-center text-3xl font-semibold"
+      v-html="question.text"
+    ></h1>
     <img class="w-full" :src="require(`~/assets/${question.image}`)" />
     <form class="w-full p-4 mt-2 md:p-6 rounded-lg bg-gray-50">
       <MultipleChoice
