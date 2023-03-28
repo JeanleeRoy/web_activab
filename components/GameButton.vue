@@ -1,8 +1,9 @@
 <template>
   <Button
-    class="w-fit mgameButton"
-    :class="{ active: !buttonDisable && animate }"
+    class="w-fit gameButton"
+    :class="[{ active: !buttonDisable && animate }, className]"
     :disabled="buttonDisable"
+    :type="type"
     @click.native="$emit('click')"
   >
     <div class="w-fit pointer-events-none flex items-center justify-center gap-x-2 pt-1">
@@ -32,6 +33,14 @@ export default {
     animate: {
       type: Boolean,
       default: false,
+    },
+    type: {
+      type: 'button' | 'submit' | 'reset',
+      default: 'button',
+    },
+    className: {
+      type: String,
+      default: '',
     },
   },
   computed: {
