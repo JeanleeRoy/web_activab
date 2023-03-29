@@ -57,6 +57,10 @@ export const state = () => ({
     lectura_13: {
       title: "La liebre Rufa",
     },
+    lectura_14: {
+      title: "Nos quedamos sin luz",
+      scale: 1.2,
+    },
   }
 })
 

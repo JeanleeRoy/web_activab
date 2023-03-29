@@ -170,7 +170,24 @@ export const state = () => ({
         imageUrl:
           'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_13/puzlle.jpg',
       },
-    }
+    },
+    14: {
+      type: 'memory',
+      props: {
+        title: 'Relaciona cada imagen con su descripción',
+        pairs: 3,
+        initialTime: 2400,
+        cards: [
+          { img: 'lectura_14/1.jpg', tag: 1 },
+          { img: 'lectura_14/2.jpg', tag: 2 },
+          { img: 'lectura_14/3.jpg', tag: 3 },
+          { img: 'lectura_14/4.jpg', tag: 1 },
+          { img: 'lectura_14/5.jpg', tag: 2 },
+          { img: 'lectura_14/6.jpg', tag: 3 },
+        ],
+        coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
+      },
+    },
   },
 })
 
