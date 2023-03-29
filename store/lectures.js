@@ -47,7 +47,10 @@ export const state = () => ({
       title: "Fabian y El Día del Árbol",
       // pdf: "", // default pdf
       scale: 1.2,
-    }
+    },
+    lectura_11: {
+      title: "El concierto de las Flores",
+    },
   }
 })
 

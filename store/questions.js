@@ -362,7 +362,7 @@ export const state = () => ({
     },
     {
       slug: 'pregunta_a',
-      text: '¿De quíenes se habla en el texto?',
+      text: '¿De quiénes se habla en el texto?',
       body: '',
       hint: '',
       type: 'multiple choice',
@@ -371,7 +371,7 @@ export const state = () => ({
     },
     {
       slug: 'pregunta_b',
-      text: '¿Para quíenes Justino realizó un gran concierto?',
+      text: '¿Para quiénes Justino realizó un gran concierto?',
       body: '',
       hint: '',
       type: 'multiple choice',
@@ -1048,6 +1048,10 @@ export const state = () => ({
     },
     {
       slug: 'lectura_10',
+      minScore: 3,
+    },
+    {
+      slug: 'lectura_11',
       minScore: 3,
     },
   ],

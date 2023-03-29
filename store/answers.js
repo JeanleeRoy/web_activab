@@ -842,7 +842,7 @@ export const state = () => ({
       },
       {
         id: 'rad_L11C2',
-        text: 'Porque quería celebrara la llegada de la primavera.',
+        text: 'Porque quería celebrar la llegada de la primavera.',
         value: '11C2',
         isCorrect: true,
       },
