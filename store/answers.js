@@ -878,19 +878,19 @@ export const state = () => ({
     pregunta_a: [
       {
         id: 'rad_L12A1',
-        text: 'por desarrollar',
+        text: 'En la ciudad',
         value: '12A1',
-        isCorrect: true,
-      },
-      {
-        id: 'rad_L12A2',
-        text: 'por desarrollar',
-        value: '12A2',
         isCorrect: false,
       },
       {
+        id: 'rad_L12A2',
+        text: 'En el campo',
+        value: '12A2',
+        isCorrect: true,
+      },
+      {
         id: 'rad_L12A3',
-        text: 'por desarrollar',
+        text: 'En la playa',
         value: '12A3',
         isCorrect: false,
       },
@@ -898,39 +898,39 @@ export const state = () => ({
     pregunta_b: [
       {
         id: 'rad_L12B1',
-        text: 'por desarrollar',
+        text: 'Para comer muchos dulces',
         value: '12B1',
         isCorrect: false,
       },
       {
         id: 'rad_L12B2',
-        text: 'Por desarrollar',
+        text: 'Para pasar más tiempo con el celular',
         value: '12B2',
         isCorrect: true,
       },
       {
         id: 'rad_L12B3',
-        text: 'Por desarrollar',
+        text: 'Para jugar con ellos, saltar, brincar, correr y esconderse',
         value: '12B3',
-        isCorrect: false,
+        isCorrect: true,
       },
     ],
     pregunta_c: [
       {
         id: 'rad_L12C1',
-        text: 'por desarrollar.',
+        text: 'No debían comer muchos dulces ni parar mucho tiempo con el celular',
         value: '12C1',
         isCorrect: false,
       },
       {
         id: 'rad_L12C2',
-        text: 'por desarrollar',
+        text: 'Está bien que jueguen, pero no debían comer dulces ni estar mucho tiempo con el celular',
         value: '12C2',
         isCorrect: true,
       },
       {
         id: 'rad_L12C3',
-        text: 'por desarrollar',
+        text: 'Mantienen una buena salud y comen ricos dulces',
         value: '12C3',
         isCorrect: false,
       },

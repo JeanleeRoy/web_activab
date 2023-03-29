@@ -148,6 +148,29 @@ export const state = () => ({
         coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
       },
     },
+    12: {
+      type: 'memory',
+      props: {
+        title: 'Relaciona cada imagen con su descripción',
+        pairs: 2,
+        initialTime: 1900,
+        cards: [
+          { img: 'lectura_12/1.jpg', tag: 1 },
+          { img: 'lectura_12/3.jpg', tag: 2 },
+          { img: 'lectura_12/2.jpg', tag: 1 },
+          { img: 'lectura_12/4.jpg', tag: 2 },
+        ],
+        coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
+      },
+    },
+    13: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_13/puzlle.jpg',
+      },
+    }
   },
 })
 

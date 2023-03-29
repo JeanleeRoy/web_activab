@@ -51,6 +51,12 @@ export const state = () => ({
     lectura_11: {
       title: "El concierto de las Flores",
     },
+    lectura_12: {
+      title: "El amigo equivocado",
+    },
+    lectura_13: {
+      title: "La liebre Rufa",
+    },
   }
 })
 
