@@ -42,6 +42,11 @@ export const state = () => ({
       title: "¿Cómo ser un buen peatón?",
       // pdf: "", // default pdf
       scale: 1.1,
+    },
+    lectura_10: {
+      title: "Fabian y El Día del Árbol",
+      // pdf: "", // default pdf
+      scale: 1.2,
     }
   }
 })

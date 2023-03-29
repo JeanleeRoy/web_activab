@@ -94,7 +94,7 @@ export const state = () => ({
     9: {
       type: 'memory',
       props: {
-        title: 'Relaciona cada con su par',
+        title: 'Relaciona cada imagen con su par',
         pairs: 4,
         initialTime: 3000,
         cards: [
@@ -106,6 +106,25 @@ export const state = () => ({
           { img: 'lectura_9/b.png', tag: 2 },
           { img: 'lectura_9/c.png', tag: 3 },
           { img: 'lectura_9/d.png', tag: 4 },
+        ],
+        coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
+      },
+    },
+    10: {
+      type: 'memory',
+      props: {
+        title: 'Relaciona cada imagen con su par',
+        pairs: 4,
+        initialTime: 3000,
+        cards: [
+          { img: 'lectura_10/a.png', tag: 1 },
+          { img: 'lectura_10/b.png', tag: 2 },
+          { img: 'lectura_10/d.png', tag: 3 },
+          { img: 'lectura_10/e.png', tag: 4 },
+          { img: 'lectura_10/a.png', tag: 1 },
+          { img: 'lectura_10/b.png', tag: 2 },
+          { img: 'lectura_10/d.png', tag: 3 },
+          { img: 'lectura_10/e.png', tag: 4 },
         ],
         coverImage: 'https://cdn-icons-png.flaticon.com/512/6381/6381582.png',
       },
