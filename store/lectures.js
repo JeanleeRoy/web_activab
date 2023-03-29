@@ -65,6 +65,10 @@ export const state = () => ({
       title: "Roberto, una fiestan sin fronteras",
       scale: 1.2,
     },
+    lectura_16: {
+      title: "Y se llama Perú",
+      scale: 1.07,
+    },
   }
 })
 
