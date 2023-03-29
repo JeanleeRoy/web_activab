@@ -61,6 +61,10 @@ export const state = () => ({
       title: "Nos quedamos sin luz",
       scale: 1.2,
     },
+    lectura_15: {
+      title: "Roberto, una fiestan sin fronteras",
+      scale: 1.2,
+    },
   }
 })
 
