@@ -1,4 +1,3 @@
-import { triggerRef } from 'vue'
 import shuffleArray from '~/utils/shuffleArray'
 
 export const state = () => ({
@@ -1288,7 +1287,7 @@ export const state = () => ({
         id: 'rad_L16B1',
         text: 'Es un país pobre',
         value: '16B1',
-        isCorrect: true,
+        isCorrect: false,
       },
       {
         id: 'rad_L16B2',
@@ -1300,7 +1299,7 @@ export const state = () => ({
         id: 'rad_L16B3',
         text: 'Es un país que tiene muchas riquezas.',
         value: '16B3',
-        isCorrect: false,
+        isCorrect: true,
       },
     ],
     pregunta_c: [
@@ -1308,13 +1307,13 @@ export const state = () => ({
         id: 'rad_L16C1',
         text: 'Emoción y orgullo por su país.',
         value: '16C1',
-        isCorrect: false,
+        isCorrect: true,
       },
       {
         id: 'rad_L16C2',
         text: 'Tristeza por su país.',
         value: '16C2',
-        isCorrect: true,
+        isCorrect: false,
       },
       {
         id: 'rad_L16C3',
@@ -1328,7 +1327,7 @@ export const state = () => ({
         id: 'rad_L16D1',
         text: 'Para aprender una canción sobre el Perú.',
         value: '16D1',
-        isCorrect: false,
+        isCorrect: true,
       },
       {
         id: 'rad_L16D2',
