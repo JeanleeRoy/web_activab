@@ -204,6 +204,37 @@ export const state = () => ({
           'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_16/puzzlee.jpg',
       },
     },
+    17: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_17/pregunta_2.jpg',
+      },
+    },
+    18: {
+      type: 'maze',
+      props: {
+        avatarImage: 'https://cdn-icons-png.flaticon.com/512/1929/1929693.png',
+        goalImage: 'https://cdn-icons-png.flaticon.com/512/7155/7155879.png',
+      },
+    },
+    19: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_19/puzzle.jpeg',
+      },
+    },
+    20: {
+      title: 'Arma el rompecabezas',
+      type: 'puzzle',
+      props: {
+        imageUrl:
+          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_20/pregunta_1.jpg',
+      },
+    },
   },
 })
 

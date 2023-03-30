@@ -69,6 +69,20 @@ export const state = () => ({
       title: "Y se llama Perú",
       scale: 1.07,
     },
+    lectura_17: {
+      title: "Lectura 17",
+    },
+    lectura_18: {
+      title: "Cóndor Andino",
+      scale: 0.92,
+    },
+    lectura_19: {
+      title: "Niño de 12 años usa la luz del poste de la calle para hacer sus tareas",
+      scale: 0.92,
+    },
+    lectura_20: {
+      title: "Lectura",
+    },
   }
 })
 

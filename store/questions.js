@@ -1074,6 +1074,22 @@ export const state = () => ({
       slug: 'lectura_16',
       minScore: 4,
     },
+    {
+      slug: 'lectura_17',
+      minScore: 1,
+    },
+    {
+      slug: 'lectura_18',
+      minScore: 3,
+    },
+    {
+      slug: 'lectura_19',
+      minScore: 4,
+    },
+    {
+      slug: 'lectura_20',
+      minScore: 1,
+    },
   ],
 })
 

@@ -20,11 +20,23 @@
         :show-next="showNext"
         @completed="updateHistory"
       />
-      <div v-if="activeNextLevel" class="flex justify-center pt-4 pb-8">
-        <GameButton :disabled="false" :animate="true" @click="goNextLevel">
-          Siguiente Nivel
-        </GameButton>
-      </div>
+      <template v-if="activeNextLevel">
+        <div>
+          <div class="flex justify-center pt-4 pb-8">
+            <GameButton
+              v-if="levelId == 20"
+              :disabled="false"
+              :animate="true"
+              @click="endGame"
+            >
+              Finalizar
+            </GameButton>
+            <GameButton v-else :disabled="false" :animate="true" @click="goNextLevel">
+              Siguiente Nivel
+            </GameButton>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -37,6 +49,11 @@ import GameButton from '~/components/GameButton.vue'
 
 export default {
   name: 'LevelItemView',
+  async asyncData({ params }) {
+    const levelId = params.level
+    const itemOrder = params.item
+    return { levelId, itemOrder }
+  },
   data: () => ({
     user: null,
     level: null,
@@ -45,22 +62,6 @@ export default {
     showNext: false,
     activeNextLevel: false,
   }),
-  head() {
-    return {
-      title: 'Recurso',
-    }
-  },
-  computed: {
-    type() {},
-  },
-  mounted() {
-    this.user = this.$supabase.auth.currentUser
-  },
-  async asyncData({ params }) {
-    const levelId = params.level
-    const itemOrder = params.item
-    return { levelId, itemOrder }
-  },
   async fetch() {
     const { data: level } = await this.$supabase
       .from('levels')
@@ -85,6 +86,17 @@ export default {
     this.showNext = levelItem.orden < this.level.total_items
     console.log('showNext', this.showNext)
     this.levelItem = levelItem
+  },
+  head() {
+    return {
+      title: 'Recurso',
+    }
+  },
+  computed: {
+    type() {},
+  },
+  mounted() {
+    this.user = this.$supabase.auth.currentUser
   },
   methods: {
     async updateHistory(payload) {
@@ -115,6 +127,9 @@ export default {
     },
     goNextLevel() {
       this.$router.push(`/level/${this.levelItem.level + 1}`)
+    },
+    endGame() {
+      this.$router.push(`/dashboard`)
     },
   },
   components: { Lectura, Juego, Preguntas, GameButton },
