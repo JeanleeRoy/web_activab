@@ -23,7 +23,7 @@ export default {
       default: false,
     },
     size: {
-      type: 'sm' | 'md' | 'lg',
+      type: 'xs' | 'sm' | 'md' | 'lg',
       default: 'md',
     },
     color: {
@@ -35,6 +35,7 @@ export default {
     sizeClasses() {
       return {
         sm: 'text-sm px-2 py-1 shadow-sm',
+        sm: 'text-sm px-3 py-1.5 shadow-sm',
         md: 'text-lg px-4 py-2 shadow-md',
         lg: 'text-xl px-6 py-3 shadow-md',
       }

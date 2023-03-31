@@ -1,34 +1,43 @@
 <template>
-  <div id="buttons">
+  <div class="relative" id="buttons">
     <div v-for="row in keys" :key="row">
-      <b-button
+      <Button
         v-for="key in row"
+        class="key-btn"
         :key="key"
-        size="sm"
-        pill
-        variant="dark"
-        :disabled="usedLetters.includes(key)"
+        :size="isSmScreen || fails === -1 ? 'sm' : 'md'"
+        color="secondary"
+        :disabled="usedLetters.includes(key) || fails === -1 || fails == 7"
         v-on:click="click(key, $event)"
       >
         {{ key }}
-      </b-button>
+      </Button>
     </div>
-    <div id="restart">
-      <b-button variant="dark" v-on:click="restart">Reiniciar</b-button>
+    <div v-if="fails == 7" class="absolute center" id="restart">
+      <Button class="relative text-white" v-on:click="restart">Reiniciar</Button>
     </div>
   </div>
 </template>
 
 <script>
+import Button from '~/components/button.vue'
+
 export default {
   name: 'Keyboard',
+  components: { Button },
   props: {
     usedLetters: String,
+    fails: Number,
   },
   data() {
     return {
-      keys: ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'],
+      keys: ['QWERTYUIOP', 'ASDFGHJKLÑ', 'ZXCVBNM'],
     }
+  },
+  computed: {
+    isSmScreen() {
+      return window.innerWidth < 768
+    },
   },
   methods: {
     click(key, e) {
@@ -44,13 +53,14 @@ export default {
 </script>
 
 <style scoped>
-button {
-  font-family: Consolas, 'Courier New', Courier, monospace;
-  font-weight: bold;
-  margin-left: 2px;
+.key-btn {
+  margin-left: 4px;
   margin-top: 3px;
+  transition: all 0.15s ease-in-out;
 }
-#restart {
-  margin-top: 5px;
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

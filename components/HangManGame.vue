@@ -1,18 +1,12 @@
 <template>
   <div id="game">
-    <b-card
-      header="Game"
-      border-variant="primary"
-      bg-variant="light"
-      header-bg-variant="primary"
-      header-text-variant="white"
-    >
+    <div class="grid justify-center">
       <div id="gameComponent">
         <StickMan :fails="fails" />
       </div>
 
       <div id="gameComponent">
-        <Letters :letters="guessedWord" />
+        <Letters :letters="guessedWord" :fails="fails" />
       </div>
 
       <div id="gameComponent">
@@ -20,9 +14,10 @@
           v-on:key="processLetter"
           v-on:restart="restart"
           :usedLetters="usedLetters"
+          :fails="fails"
         />
       </div>
-    </b-card>
+    </div>
 
     <br />
   </div>
@@ -32,13 +27,18 @@
 import StickMan from '@/components/hangman/StickMan.vue'
 import Letters from '@/components/hangman/Letters.vue'
 import Keyboard from '@/components/hangman/Keyboard.vue'
-import json from '@/word.json'
+// import json from '@/word.json'
 export default {
   name: 'game',
   components: {
     StickMan,
     Letters,
     Keyboard,
+  },
+  emits: ['word-completed', 'restart'],
+  props: {
+    words: Array,
+    default: () => ['Hola', 'Mundo'],
   },
   data() {
     return {
@@ -47,7 +47,8 @@ export default {
       secretWord: '',
       foundLetters: '',
       usedLetters: '',
-      words: json.words,
+      keys: 'QWERTYUIOPASDFGHJKLÑZXCVBNM',
+      // words: json.words,
     }
   },
   mounted: function () {
@@ -56,9 +57,10 @@ export default {
   },
   methods: {
     restart: function () {
+      if (!this.words) return
       var min = 0
       var max = this.words.length - 1
-      var index = parseInt(Math.random() * (max - min) + min)
+      var index = Math.round(Math.random() * (max - min) + min)
       this.secretWord = this.words[index].toUpperCase()
       this.guessedWord = ''
       this.foundLetters = ''
@@ -71,7 +73,8 @@ export default {
     },
     keyPressed(e) {
       var key = e.key.toUpperCase()
-      this.processLetter(key)
+      if (this.keys.includes(key) || key == 'ESCAPE' || key == ' ')
+        this.processLetter(key)
     },
     processLetter(letter) {
       if (this.fails >= 0 && this.fails < 7 && !this.usedLetters.includes(letter)) {
@@ -83,6 +86,8 @@ export default {
             .join('')
           if (this.guessedWord == this.secretWord) {
             this.fails = -1
+            console.log('wordCompleted')
+            this.$emit('word-completed', this.secretWord)
           }
         } else {
           this.fails++
@@ -94,6 +99,7 @@ export default {
       }
       if (letter == 'ESCAPE' || letter == ' ') {
         this.restart()
+        this.$emit('restart')
       }
     },
   },

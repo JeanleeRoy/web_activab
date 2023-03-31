@@ -9,6 +9,9 @@
     <template v-if="type === 'maze'">
       <AvMaze v-bind="game.props" @is-completed="validateState" />
     </template>
+    <template v-if="type === 'hangman'">
+      <AVHangman v-bind="game.props" @is-completed="validateState" />
+    </template>
   </div>
 </template>
 
@@ -16,6 +19,7 @@
 import AVPuzzle from '~/components/AVgames/AVPuzzle.vue'
 import AVMemory from '~/components/AVgames/AVMemory.vue'
 import AvMaze from '~/components/AVgames/AVMaze.vue'
+import AVHangman from '~/components/AVgames/AVHangman.vue'
 
 export default {
   name: 'JuegoItem',
@@ -43,6 +47,6 @@ export default {
       }
     },
   },
-  components: { AVPuzzle, AVMemory, AvMaze },
+  components: { AVPuzzle, AVMemory, AvMaze, AVHangman },
 }
 </script>
