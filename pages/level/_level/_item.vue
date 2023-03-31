@@ -1,7 +1,7 @@
 <template>
   <div class="w-full min-h-screen">
     <SiteHeader />
-    <div v-if="validLevel && levelItem" class="w-full max-w-7xl p-4 my-8 mx-auto">
+    <div v-if="validLevel && levelItem" class="w-full max-w-7xl px-1.5 py-4 my-8 mx-auto sm:px-4">
       <Lectura
         v-if="levelItem.type === 'lecturas'"
         :level-item="levelItem"
