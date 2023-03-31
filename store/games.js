@@ -59,11 +59,12 @@ export const state = () => ({
       },
     },
     6: {
-      title: 'Arma el rompecabezas',
-      type: 'puzzle',
+      type: 'hangman',
       props: {
-        imageUrl:
-          'https://github.com/JeanleeRoy/web_activab/blob/dev/assets/lectura_6/pregunta.jpg?raw=true',
+        hint: {
+          text: 'Desde el día en que nací corro y corro sin cesar, corro de noche y de día hasta llegar al mar',
+        },
+        words: ['EL RIO'],
       },
     },
     7: {
@@ -189,11 +190,14 @@ export const state = () => ({
       },
     },
     15: {
-      title: 'Arma el rompecabezas',
-      type: 'puzzle',
+      type: 'hangman',
       props: {
-        imageUrl:
-          'https://raw.githubusercontent.com/JeanleeRoy/web_activab/dev/assets/lectura_15/pregunta_4.jpg',
+        title: "Adivina la frase",
+        hint: {
+          text: 'Observa la imagen y forma la frase en los espacios vacíos.',
+          image: 'lectura_15/sennor_milagros.jpg'
+        },
+        words: ['el señor de los milagros'],
       },
     },
     16: {
@@ -213,10 +217,13 @@ export const state = () => ({
       },
     },
     18: {
-      type: 'maze',
+      type: 'hangman',
       props: {
-        avatarImage: 'https://cdn-icons-png.flaticon.com/512/1929/1929693.png',
-        goalImage: 'https://cdn-icons-png.flaticon.com/512/7155/7155879.png',
+        hint: {
+          text: 'Soy una de las más grandes aves que vive en el Perú. Vivo a lo largo de la codillera de los andes, veo mi habitad destruir y por eso cada vez soy más difícil de descubrir. ¿Quién soy?',
+          // image: 'lectura_15/sennor_milagros.jpg'
+        },
+        words: ['condor'],
       },
     },
     19: {
