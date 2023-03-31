@@ -4,9 +4,9 @@
     :class="[{ active: !buttonDisable && animate }, className]"
     :disabled="buttonDisable"
     :type="type"
-    @click.native="$emit('click')"
+    @click="$emit('click', $event)"
   >
-    <div class="w-fit pointer-events-none flex items-center justify-center gap-x-2 pt-1">
+    <div class="w-fit pointer-events-none flex items-center justify-center gap-x-2">
       <img
         v-show="loading"
         class="h-5 animate-spin"
@@ -18,9 +18,11 @@
 </template>
 
 <script>
+import Button from '~/components/button.vue'
+
 export default {
   name: 'GameButton',
-  emits: ['click'],
+  components: { Button },
   props: {
     disabled: {
       type: Boolean,
