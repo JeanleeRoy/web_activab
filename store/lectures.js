@@ -62,7 +62,7 @@ export const state = () => ({
       scale: 1.2,
     },
     lectura_15: {
-      title: "Roberto, una fiestan sin fronteras",
+      title: "Roberto, una fiesta sin fronteras",
       scale: 1.2,
     },
     lectura_16: {

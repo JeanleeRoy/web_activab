@@ -16,7 +16,7 @@
         <div>
           <p>{{ level?.description }}</p>
           <LevelItemsGrid :level="Number(id)" />
-          <div v-if="validNextLevel" class="flex justify-center pt-4 pb-8">
+          <div v-if="validNextLevel && Number(id) < 20" class="flex justify-center pt-4 pb-8">
             <GameButton :disabled="false" @click="goNextLevel">
               Siguiente Nivel
             </GameButton>
