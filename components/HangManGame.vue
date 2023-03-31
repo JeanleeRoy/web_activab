@@ -6,7 +6,7 @@
       </div>
 
       <div id="gameComponent">
-        <Letters :letters="guessedWord" :fails="fails" />
+        <Letters :letters="guessedWord" :word="secretWord" :fails="fails" />
       </div>
 
       <div id="gameComponent">
@@ -73,8 +73,7 @@ export default {
     },
     keyPressed(e) {
       var key = e.key.toUpperCase()
-      if (this.keys.includes(key) || key == 'ESCAPE' || key == ' ')
-        this.processLetter(key)
+      if (this.keys.includes(key) || key == 'ESCAPE') this.processLetter(key)
     },
     processLetter(letter) {
       if (this.fails >= 0 && this.fails < 7 && !this.usedLetters.includes(letter)) {
@@ -84,7 +83,7 @@ export default {
             .split('')
             .map(l => (this.foundLetters.includes(l) ? l : '_'))
             .join('')
-          if (this.guessedWord == this.secretWord) {
+          if (this.guessedWord.replace(/\_/g, '') == this.secretWord.replace(/\s/g, '')) {
             this.fails = -1
             console.log('wordCompleted')
             this.$emit('word-completed', this.secretWord)
@@ -97,7 +96,7 @@ export default {
         }
         this.usedLetters += letter
       }
-      if (letter == 'ESCAPE' || letter == ' ') {
+      if (letter == 'ESCAPE') {
         this.restart()
         this.$emit('restart')
       }

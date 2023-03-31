@@ -152,7 +152,7 @@ export default {
 .stickMan {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14pt;
-  min-height: 250px;
+  min-height: 240px;
 }
 #progress {
   margin-left: 25%;
