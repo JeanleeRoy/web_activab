@@ -142,7 +142,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .link-to {
   display: inline-block;
   font-size: 18px;
