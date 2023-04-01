@@ -6,7 +6,8 @@
         :ratio="ratio"
         :mode="mode"
         :src="imageUrl"
-        @card-drop="onCardDragover"
+        @card-drop="onCardMoved"
+        @card-touchend="onCardMoved"
       />
     </div>
     <div>
@@ -37,7 +38,7 @@ export default {
     },
   },
   methods: {
-    onCardDragover(val) {
+    onCardMoved(val) {
       // console.log('AVPuzzle isCompleted', val)
       this.$emit('is-completed', val.gameSuccess)
     },
