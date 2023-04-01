@@ -2,15 +2,13 @@
   <main>
     <header class="w-full py-6 px-4">
       <div class="max-w-7xl flex items-center justify-between bg-white mx-auto">
-        <img src="" alt="ActiVAB" />
-        <nav class="hidden gap-x-10 sm:flex">
+        <b class="text-2xl">ActiVAB</b>
+        <nav class="ml-10 hidden w-full items-center justify-between sm:flex sm:max-w-xl">
           <p class="link-to" @click="smothScrollTo('about')">Acerca de</p>
           <p class="link-to" @click="smothScrollTo('mission')">Mision</p>
           <p class="link-to" @click="smothScrollTo('vision')">Visión</p>
-        </nav>
-        <div>
           <Button @click="handleLogin">Login</Button>
-        </div>
+        </nav>
       </div>
     </header>
 
@@ -46,7 +44,7 @@
       <div class="w-full max-w-7xl mx-auto">
         <h2 class="text-4xl font-semibold text-center">Acerca de nosotros</h2>
         <div
-          class="pt-16 flex flex-col items-center gap-10 sm:flex-row sm:items-start sm:justify-center sm:gap-20"
+          class="pt-16 flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-20"
         >
           <div class="card">
             <img src="~/assets/img/responsabilidad.png" />
@@ -103,9 +101,11 @@
     </section>
 
     <footer class="bg-gray-700 p-6 px-10 mt-6">
-      <div class="w-full max-w-5xl mx-auto">
-        <div class="flex flex-col items-center py-2s text-white sm:flex-row text-center gap-y-6 sm:justify-between">
-          <img src="" alt="ActiVAB" />
+      <div class="w-full max-w-7xl mx-auto">
+        <div
+          class="flex flex-col items-center py-2s text-white sm:flex-row text-center gap-y-6 sm:justify-between"
+        >
+          <b class="text-2xl">ActiVAB</b>
           <p class="text-gray-300 text-center">
             &#169; ActiVAB {{ currentYear }} &nbsp; | &nbsp; Todos los derechos reservados
           </p>
