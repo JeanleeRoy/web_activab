@@ -66,13 +66,13 @@
 
     <section class="px-4 py-10 sm:pt-20" id="mission">
       <div class="w-full max-w-4xl mx-auto">
-        <div class="group flex items-center gap-x-8">
+        <div class="group flex flex-col items-center gap-x-8 sm:flex-row">
           <img
             class="rounded-full group-hover:shadow-xl w-60 transition duration-700"
             src="~/assets/img/mision.png"
           />
-          <div class="flex flex-col gap-8 md:pl-10">
-            <h3 class="text-4xl font-semibold text-blue-700">Mision</h3>
+          <div class="flex flex-col gap-8 px-6 md:pl-10 text-center sm:px-2 sm:text-left">
+            <h3 class="text-4xl font-semibold text-blue-700 pt-6 sm:pt-0">Mision</h3>
             <p>
               Victor Ramon Belarde es una institución educativa comprometida con la
               enseñanza del estudiante desde el primer grado, acompañandolos en todas sus
@@ -85,28 +85,28 @@
 
     <section class="px-4 py-10 sm:py-20" id="vision">
       <div class="w-full max-w-4xl mx-auto">
-        <div class="group flex items-center gap-x-8">
-          <div class="flex flex-col gap-8 md:pl-10">
-            <h3 class="text-4xl font-semibold text-yellow-600">Visón</h3>
+        <div class="group flex flex-col items-center gap-x-8 sm:flex-row-reverse">
+          <img
+            class="rounded-full group-hover:shadow-xl w-60 transition duration-700"
+            src="~/assets/img/vision.png"
+          />
+          <div class="flex flex-col gap-8 px-6 md:pl-10 text-center sm:px-2 sm:text-left">
+            <h3 class="text-4xl font-semibold text-yellow-600 pt-6 sm:pt-0">Visón</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
               libero et velit interdum, ac aliquet odio mattis. Class aptent taciti
               sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
           </div>
-          <img
-            class="rounded-full group-hover:shadow-xl w-60 transition duration-700"
-            src="~/assets/img/vision.png"
-          />
         </div>
       </div>
     </section>
 
-    <footer class="bg-gray-700 p-6 px-10">
+    <footer class="bg-gray-700 p-6 px-10 mt-6">
       <div class="w-full max-w-5xl mx-auto">
-        <div class="flex justify-between py-2s text-white">
+        <div class="flex flex-col items-center py-2s text-white sm:flex-row text-center gap-y-6 sm:justify-between">
           <img src="" alt="ActiVAB" />
-          <p class="text-gray-300">
+          <p class="text-gray-300 text-center">
             &#169; ActiVAB {{ currentYear }} &nbsp; | &nbsp; Todos los derechos reservados
           </p>
         </div>
