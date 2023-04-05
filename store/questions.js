@@ -366,7 +366,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple choice',
-      image: 'lectura_10/pregunta_1.jpg',
+      image: 'lectura_11/pregunta_1.jpg',
       parent: 'lectura_11',
     },
     {
