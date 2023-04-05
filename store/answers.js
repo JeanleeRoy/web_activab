@@ -107,7 +107,7 @@ export const state = () => ({
         id: 'rad_L1F1',
         text: 'Conoció Huancayo',
         value: '1F1',
-        isCorrect: true,
+        isCorrect: false,
       },
       {
         id: 'rad_L1F2',

@@ -42,7 +42,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple_choice',
-      image: 'lectura_1/pregunta_4.jpg',
+      image: 'lectura_1/pregunta_5.jpg',
       parent: 'lectura_1',
     },
     {
@@ -51,7 +51,7 @@ export const state = () => ({
       body: '',
       hint: '',
       type: 'multiple_choice',
-      image: 'lectura_1/pregunta_4.jpg',
+      image: 'lectura_1/pregunta_6.jpg',
       parent: 'lectura_1',
     },
     {
