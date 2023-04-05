@@ -30,7 +30,7 @@ export const state = () => ({
     },
     lectura_7: {
       title: "Danzas Folklóricas del Perú",
-      pdf: "/lectura_7/lectura.png",
+      pdf: "/lectura_7/lectura_7.pdf",
       // scale: 1.2,
     },
     lectura_8: {
